@@ -44,6 +44,10 @@ $dados = $comando->fetchAll(PDO::FETCH_ASSOC);
     <h3>alterar viagens</h3>
     <form action="../backend/_alterar_viagens.php" method="POST">
 
+    <hr>
+    <a href="gerenciar_viagens.php">gerenciar viagens</a>
+    <hr>
+
     <div id="grid-alterar">
 
     <div>

@@ -5,15 +5,30 @@ include'conexao.php';
 
 try{
     // Exibe as váriaveis globais recebidas via POST
-    // echo"<pre>";
-    // var_dump($_POST);
-    // echo"<pre>";
+    //  echo"<pre>";
+    //  var_dump($_FILES);
+    //  echo"<pre>";
+    //  exit;
 
     // variaveis que recebem os dados enviados via POST
     $titulo = $_POST['titulo'];
     $local = $_POST['local'];
     $valor = $_POST['valor'];
     $desc = $_POST['desc'];
+
+    // --------------------------------------------------------------------------------------------------------
+    // upload da imagem
+    // este eo caminho onde a imagem sera armazenada
+    $pasta = '../img/upload/';
+
+    // define um novo nome da imagem pra upload
+    $imagem = 'foto.jpg';
+
+    // funcao php que faz o upload da imagem
+    move_uploaded_file($_FILES['imagem']['tmp_name'],$pasta.'imagem.jpg');
+    exit;
+
+
 
     // variavel que recebe a query SQL que será executada na BD
     $sql = "INSERT INTO 
@@ -37,8 +52,9 @@ $comando = $con->prepare($sql);
 $comando->execute();
 
 // exibe msg de sucesso ao inserir
-echo "cadastrado com sucesso!";
+// echo "cadastrado com sucesso!";
 
+header('location: ../admin/gerenciar_viagens.php');
 
 // fechar a conexão
 $con = null;
