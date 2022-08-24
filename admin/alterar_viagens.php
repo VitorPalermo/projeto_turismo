@@ -42,7 +42,8 @@ $dados = $comando->fetchAll(PDO::FETCH_ASSOC);
 
     <div id="container">
     <h3>alterar viagens</h3>
-    <form action="../backend/_alterar_viagens.php" method="POST">
+    <!--  o enctype ele manda apenas texto -->
+    <form action="../backend/_alterar_viagens.php" method="post" enctype="multipart/form-data">
 
     <hr>
     <a href="gerenciar_viagens.php">gerenciar viagens</a>
@@ -71,6 +72,12 @@ $dados = $comando->fetchAll(PDO::FETCH_ASSOC);
             <label for="valor">valor</label>
             <input type="text" name="valor" id="valor" value="<?php echo $dados[0]['Valor']?>">
         </div>
+
+        <div>
+        <label for="alterar-imagem">alterar imagem</label>
+        <input type="file" name="imagem" id="imagem">
+        </div>
+        <img class="img-alterar" src="../img/upload/<?php echo $dados[0]['imagem']?>">
 
         <div>
             <label for="desc">descrição</label>
