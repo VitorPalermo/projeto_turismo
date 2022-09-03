@@ -1,3 +1,14 @@
+<?php
+// inicia a sessao
+session_start();
+
+// verifica se a variavel de sessao existe
+if(isset($_SESSION['usuario'])){
+    header('location: gerenciar_viagens.php');
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
